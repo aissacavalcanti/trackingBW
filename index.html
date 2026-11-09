@@ -113,6 +113,10 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 .copy-ok { color: var(--color-ok); font-size: var(--cds-font-size-caption); }
 .copy-fail { color: var(--color-warn); font-size: var(--cds-font-size-caption); }
 .copy-area { width: 100%; min-height: 8rem; font-family: ui-monospace, monospace; font-size: 11px; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); box-sizing: border-box; }
+.pot-tot { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: var(--cds-gap-md); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-md); margin-top: auto; }
+.pot-tot .pt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pot-tot .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pot-tot .big { font-family: var(--font-anthropic-serif); font-size: 22px; font-variant-numeric: tabular-nums; }
 .seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
 .seg button { all: unset; cursor: pointer; padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
 .seg button[aria-pressed=true] { background: var(--bw-acc); color: #fff; }
@@ -152,6 +156,11 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
       <p class="note">Verde: faturamento BW já realizado. Cinza: estoque BW ainda nas lojas, a preço de venda com o desconto da Beauty Week (inclui itens que entram em desconto até 26/11). A % mostra quanto do total já virou venda.</p>
       <div class="legend"><span style="--sw: var(--bw-acc)">Realizado BW</span><span style="--sw: var(--cds-chart-muted)">Potencial em estoque</span></div>
       <div class="chart" data-draw="pot" data-source="praca_pot"></div>
+      <div class="pot-tot">
+        <div class="pt"><span class="lbl">Realizado BW na rede</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="real" data-row="0">—</span><span class="lbl">faturamento de itens BW com desconto ativo</span></div>
+        <div class="pt"><span class="lbl">Potencial em estoque na rede</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="pot" data-row="0">—</span><span class="lbl">já em desconto: <b data-draw="pot-tot" data-source="pot_total" data-field="pot_vig" data-row="0">—</b> · entra até 26/11: <b data-draw="pot-tot" data-source="pot_total" data-field="pot_fut" data-row="0">—</b></span></div>
+        <div class="pt"><span class="lbl">Já convertido em venda</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="conv" data-row="0">—</span><span class="lbl">realizado ÷ (realizado + potencial)</span></div>
+      </div>
     </div>
   </div>
 
@@ -450,6 +459,12 @@ dash.calc('estoque_calc', {inputs: ['estoque', 'skus', 'lojas'], title: 'Estoque
       const a = s.get(r.sku) || {}, b = l.get(r.bcps) || {};
       return {bcps: r.bcps, sku: r.sku, loja: b.loja || r.bcps, praca: b.praca || '', canal: b.canal || '', descricao: a.descricao || '', tabela: a.tabela || '', status: a.status || '', est: r.est, qtd: r.qtd, qtd_hoje: r.qtd_hoje, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null};
     });
+  }});
+dash.calc('pot_total', {inputs: ['praca_pot'], title: 'Realizado e potencial na rede', description: 'Soma das praças: faturamento BW realizado e estoque BW a preço com desconto.',
+  fn: (praca_pot) => {
+    const s = (k) => praca_pot.reduce((a, r) => a + r[k], 0);
+    const real = s('fat_bw_vig'), pot = s('pot');
+    return [{real, pot, pot_vig: s('pot_vig'), pot_fut: s('pot_fut'), conv: real / (real + pot)}];
   }});
 dash.calc('skus_calc', {inputs: ['skus'], title: 'Giro por SKU', description: 'Giro e cobertura de cada SKU na rede.',
   fn: (skus) => skus.map((r) => ({sku: r.sku, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null}))});
@@ -978,6 +993,16 @@ dash.draw('pot', (el) => {
     const tw = tip.node().offsetWidth;
     tip.style('left', Math.max(0, Math.min(px + 12, el.clientWidth - tw - 4)) + 'px').style('top', Math.max(0, py - 60) + 'px');
   }).on('mouseleave', () => tip.style('display', 'none'));
+});
+</script>
+
+<script>
+const B8 = window.bw;
+dash.draw('pot-tot', (el) => {
+  const d = dash.data('pot_total');
+  if (d.status !== 'ok') { el.textContent = '—'; return; }
+  const r = d.data[0], f = el.dataset.field;
+  el.textContent = f === 'conv' ? B8.pct(r[f]) : B8.brlc(r[f]);
 });
 </script>
 
