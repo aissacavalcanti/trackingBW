@@ -138,8 +138,8 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
   <div class="aba" id="aba-geral">
   <div class="tiles" id="kpis">
     <div class="tile"><span class="lbl">Faturamento total da rede</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_total" data-row="0">—</span><span class="note">Todos os itens, 28/10 a 10/11</span></div>
-    <div class="tile"><span class="lbl">Faturamento BW em vigência</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_bw_vig" data-row="0">—</span><span class="note">Item com desconto ativo no dia da venda</span></div>
-    <div class="tile"><span class="lbl">% da receita vinda do BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="part" data-row="0">—</span><span class="note">BW em vigência ÷ faturamento total</span></div>
+    <div class="tile"><span class="lbl">Faturamento BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_bw_vig" data-row="0">—</span><span class="note">Todos os itens da tabela BW, inclusive os antecipados</span></div>
+    <div class="tile"><span class="lbl">% da receita vinda do BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="part" data-row="0">—</span><span class="note">Faturamento BW ÷ faturamento total</span></div>
     <div class="tile"><span class="lbl">Giro BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="st" data-row="0">—</span><span class="note">Vendido ÷ (vendido + estoque)</span></div>
     <div class="tile"><span class="lbl">Cobertura do estoque BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="cob" data-row="0">—</span><span class="note">Dias de estoque no ritmo atual · faltam 20 dias de BW</span></div>
   </div>
@@ -147,8 +147,8 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
   <div class="grid2" id="resumo-graficos">
     <div class="card" id="diario">
       <h3>Venda por dia</h3>
-      <p class="note">Faturamento total da rede por dia (R$). Em cima de cada barra: total do dia e % BW. Dentro da parte verde: faturamento dos itens BW com desconto ativo.</p>
-      <div class="legend"><span style="--sw: var(--bw-acc)">BW em vigência</span><span style="--sw: var(--cds-chart-muted)">Demais itens</span></div>
+      <p class="note">Faturamento total da rede por dia (R$). Em cima de cada barra: total do dia e % BW. Dentro da parte verde: faturamento dos itens da tabela BW.</p>
+      <div class="legend"><span style="--sw: var(--bw-acc)">Itens BW</span><span style="--sw: var(--cds-chart-muted)">Demais itens</span></div>
       <div class="chart" data-draw="daily" data-source="diario_total"></div>
     </div>
     <div class="card" id="potencial">
@@ -157,7 +157,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
       <div class="legend"><span style="--sw: var(--bw-acc)">Realizado BW</span><span style="--sw: var(--cds-chart-muted)">Potencial em estoque</span></div>
       <div class="chart" data-draw="pot" data-source="praca_pot"></div>
       <div class="pot-tot">
-        <div class="pt"><span class="lbl">Realizado BW na rede</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="real" data-row="0">—</span><span class="lbl">faturamento de itens BW com desconto ativo</span></div>
+        <div class="pt"><span class="lbl">Realizado BW na rede</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="real" data-row="0">—</span><span class="lbl">faturamento de todos os itens da tabela BW</span></div>
         <div class="pt"><span class="lbl">Potencial em estoque na rede</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="pot" data-row="0">—</span><span class="lbl">já em desconto: <b data-draw="pot-tot" data-source="pot_total" data-field="pot_vig" data-row="0">—</b> · entra até 26/11: <b data-draw="pot-tot" data-source="pot_total" data-field="pot_fut" data-row="0">—</b></span></div>
         <div class="pt"><span class="lbl">Já convertido em venda</span><span class="big" data-draw="pot-tot" data-source="pot_total" data-field="conv" data-row="0">—</span><span class="lbl">realizado ÷ (realizado + potencial)</span></div>
       </div>
@@ -198,7 +198,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="receita">
     <h2>Quanto o BW está puxando a receita</h2>
-    <p class="lead">Faturamento por dia, separando o que veio de itens BW com desconto vigente. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11 é sábado, 08/11 domingo e 10/11 vai até 18h25.</p>
+    <p class="lead">Faturamento por dia, separando o que veio de itens da tabela BW. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11 é sábado, 08/11 domingo e 10/11 vai até 18h25.</p>
     <div class="grid2">
       <div class="card" id="marcas">
         <h3>Giro por tabela</h3>
@@ -210,7 +210,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="lojas">
     <h2>Lojas</h2>
-    <p class="lead">Quanto da receita de cada loja veio de itens BW em vigência, e o giro desses itens. "Zerados" são SKUs em vigência que a loja vendeu e hoje estão sem estoque. Ao escolher um dia, faturamento e unidades são só daquele dia; o estoque é sempre o atual, e a cobertura passa a usar a venda desse dia.</p>
+    <p class="lead">Quanto da receita de cada loja veio de itens da tabela BW, e o giro dos itens em vigência. "Zerados" são SKUs em vigência que a loja vendeu e hoje estão sem estoque. Ao escolher um dia, faturamento e unidades são só daquele dia; o estoque é sempre o atual, e a cobertura passa a usar a venda desse dia.</p>
     <div class="card">
       <div class="ctrls">
         <select id="f-praca" aria-label="Praça" data-draw="sel-praca" data-source="praca_canal"></select>
@@ -226,7 +226,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
             <th class="l" data-field="praca" data-k="praca"><button>Praça</button></th>
             <th class="l" data-field="canal" data-k="canal"><button>Canal</button></th>
             <th data-field="fat_total" data-k="fat_total"><button>Fat. total</button></th>
-            <th data-field="fat_bw_vig" data-k="fat_bw_vig"><button>Fat. BW vigência</button></th>
+            <th data-field="fat_bw_vig" data-k="fat_bw_vig"><button>Fat. BW</button></th>
             <th data-source="lojas_calc" data-field="part" data-k="part"><button>% receita BW</button></th>
             <th data-field="qtd" data-k="qtd"><button>Un. vendidas</button></th>
             <th data-field="est" data-k="est"><button>Estoque un.</button></th>
@@ -284,15 +284,15 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
   <div class="aba" id="aba-dia" hidden>
     <section class="sec" id="venda-por-dia">
       <h2>Venda por dia</h2>
-      <p class="lead">Acompanhe dia a dia quanto os itens BW em vigência venderam, e o peso deles na receita. Os filtros valem para todos os quadros desta aba (a tabela muda só o BW; o faturamento total segue praça e canal).</p>
+      <p class="lead">Acompanhe dia a dia quanto os itens da tabela BW venderam, e o peso deles na receita. Os filtros valem para todos os quadros desta aba (a tabela muda só o BW; o faturamento total segue praça e canal).</p>
       <div class="ctrls">
         <select id="d-praca" aria-label="Praça" data-draw="sel-praca" data-source="praca_canal"></select>
         <select id="d-canal" aria-label="Canal" data-draw="sel-canal" data-source="praca_canal"></select>
         <select id="d-tabela" aria-label="Tabela" data-draw="sel-tabela" data-source="marcas"></select>
       </div>
       <div class="card" id="dia-grafico">
-        <h3>Faturamento BW em vigência por dia</h3>
-        <p class="note">Barras = faturamento dos itens BW com desconto ativo no dia. O número acima é a % da receita total do dia.</p>
+        <h3>Faturamento BW por dia</h3>
+        <p class="note">Barras = faturamento dos itens da tabela BW no dia. O número acima é a % da receita total do dia.</p>
         <div class="chart" data-draw="dia-chart" data-source="dia_bw dia_total"></div>
       </div>
       <div class="card" id="dia-tabela">
@@ -468,7 +468,7 @@ dash.calc('pot_total', {inputs: ['praca_pot'], title: 'Realizado e potencial na 
   }});
 dash.calc('skus_calc', {inputs: ['skus'], title: 'Giro por SKU', description: 'Giro e cobertura de cada SKU na rede.',
   fn: (skus) => skus.map((r) => ({sku: r.sku, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 14) : null}))});
-dash.calc('diario_total', {inputs: ['diario'], title: 'Faturamento por dia', description: 'Faturamento total e BW em vigência por dia, somando os canais.',
+dash.calc('diario_total', {inputs: ['diario'], title: 'Faturamento por dia', description: 'Faturamento total e dos itens BW por dia, somando os canais.',
   fn: (diario) => {
     const m = new Map();
     for (const r of diario) { const a = m.get(r.dt) || {dt: r.dt, fat_total: 0, fat_bw_vig: 0}; a.fat_total += r.fat_total; a.fat_bw_vig += r.fat_bw_vig; m.set(r.dt, a); }
@@ -588,7 +588,7 @@ dash.draw('daily', (el) => {
     tip.style('display', null).html('');
     tip.append('div').attr('class', 't').text(lab(r));
     tip.append('div').text('Total ' + B.brl(r.fat_total));
-    tip.append('div').text('BW em vigência ' + B.brl(r.fat_bw_vig) + ' (' + B.pct(r.part) + ')');
+    tip.append('div').text('Itens BW ' + B.brl(r.fat_bw_vig) + ' (' + B.pct(r.part) + ')');
     const tw = tip.node().offsetWidth;
     tip.style('left', Math.max(0, Math.min(px + 12, el.clientWidth - tw - 4)) + 'px').style('top', Math.max(0, py - 40) + 'px');
   }).on('mouseleave', () => tip.style('display', 'none'));
@@ -761,10 +761,10 @@ const porDia = () => {
   const p = P3();
   const okPC = (r) => (!p.praca || r.praca === p.praca) && (!p.canal || r.canal === p.canal);
   const m = new Map();
-  const get = (dt) => m.get(dt) || (m.set(dt, {dt, fat_total: 0, fat_vig: 0, qtd_vig: 0, fat_bw: 0, qtd_bw: 0}), m.get(dt));
-  for (const r of t.data) if (okPC(r)) get(r.dt).fat_total += r.fat_total;
+  const get = (dt) => m.get(dt) || (m.set(dt, {dt, fat_total: 0, qtd_total: 0, fat_vig: 0, qtd_vig: 0, fat_bw: 0, qtd_bw: 0}), m.get(dt));
+  for (const r of t.data) if (okPC(r)) { const g = get(r.dt); g.fat_total += r.fat_total; g.qtd_total += r.qtd_total || 0; }
   for (const r of a.data) if (okPC(r) && (!p.tabela || r.tabela === p.tabela)) { const g = get(r.dt); g.fat_vig += r.fat_vig; g.qtd_vig += r.qtd_vig; g.fat_bw += r.fat_bw; g.qtd_bw += r.qtd_bw; }
-  return [...m.values()].sort((x, y) => x.dt < y.dt ? -1 : 1).map((g) => ({...g, part: g.fat_total > 0 ? g.fat_vig / g.fat_total : null}));
+  return [...m.values()].sort((x, y) => x.dt < y.dt ? -1 : 1).map((g) => ({...g, part: g.fat_total > 0 ? g.fat_vig / g.fat_total : null, part_un: g.qtd_total > 0 ? g.qtd_vig / g.qtd_total : null}));
 };
 
 dash.draw('dia-chart', (el) => {
@@ -785,7 +785,7 @@ dash.draw('dia-chart', (el) => {
     const [px, py] = d3.pointer(ev, el);
     tip.style('display', null).html('');
     tip.append('div').attr('class', 't').text(dlab(r.dt));
-    tip.append('div').text('BW em vigência ' + B3.brl(r.fat_vig) + ' · ' + B3.int(r.qtd_vig) + ' un.');
+    tip.append('div').text('Itens BW ' + B3.brl(r.fat_vig) + ' · ' + B3.int(r.qtd_vig) + ' un.');
     tip.append('div').text('Receita total ' + B3.brl(r.fat_total) + ' (' + B3.pct(r.part) + ' BW)');
     const tw = tip.node().offsetWidth;
     tip.style('left', Math.max(0, Math.min(px + 12, el.clientWidth - tw - 4)) + 'px').style('top', Math.max(0, py - 40) + 'px');
@@ -796,11 +796,11 @@ dash.draw('dia-table', (el) => {
   el.replaceChildren();
   const rows = porDia();
   if (!rows) return;
-  const tot = rows.reduce((a, r) => ({fat_total: a.fat_total + r.fat_total, fat_vig: a.fat_vig + r.fat_vig, qtd_vig: a.qtd_vig + r.qtd_vig, fat_bw: a.fat_bw + r.fat_bw}), {fat_total: 0, fat_vig: 0, qtd_vig: 0, fat_bw: 0});
+  const tot = rows.reduce((a, r) => ({fat_total: a.fat_total + r.fat_total, fat_vig: a.fat_vig + r.fat_vig, qtd_vig: a.qtd_vig + r.qtd_vig, qtd_total: a.qtd_total + r.qtd_total}), {fat_total: 0, fat_vig: 0, qtd_vig: 0, qtd_total: 0});
   const t = document.createElement('table'); t.className = 't'; t.id = 'tab-dia';
   const hd = t.createTHead().insertRow();
   const S = window.bwSorts['tab-dia'];
-  for (const [h, k, c] of [['Dia', 'dt', 'l'], ['Fat. total', 'fat_total'], ['Fat. BW em vigência', 'fat_vig'], ['% receita BW', 'part'], ['Un. BW em vigência', 'qtd_vig'], ['Fat. BW todos os itens', 'fat_bw']]) {
+  for (const [h, k, c] of [['Dia', 'dt', 'l'], ['Fat. total', 'fat_total'], ['Fat. BW', 'fat_vig'], ['% receita BW', 'part'], ['Un. BW', 'qtd_vig'], ['Un. total', 'qtd_total'], ['% un. BW', 'part_un']]) {
     const th = document.createElement('th'); if (c) th.className = c; th.dataset.k = k;
     th.setAttribute('aria-sort', S && S.k === k ? (S.dir > 0 ? 'ascending' : 'descending') : 'none');
     const b = document.createElement('button'); b.textContent = h; th.append(b);
@@ -809,7 +809,7 @@ dash.draw('dia-table', (el) => {
   }
   B3.sortBy('tab-dia', rows);
   const tb = t.createTBody();
-  const row = (lab, r, bold) => { const tr = tb.insertRow(); for (const [v, c] of [[lab, 'l'], [B3.brl(r.fat_total)], [B3.brl(r.fat_vig)], [B3.pct(r.fat_total > 0 ? r.fat_vig / r.fat_total : null)], [B3.int(r.qtd_vig)], [B3.brl(r.fat_bw)]]) { const td = tr.insertCell(); if (c) td.className = c; td.textContent = v; if (bold) td.style.fontWeight = '600'; } };
+  const row = (lab, r, bold) => { const tr = tb.insertRow(); for (const [v, c] of [[lab, 'l'], [B3.brl(r.fat_total)], [B3.brl(r.fat_vig)], [B3.pct(r.fat_total > 0 ? r.fat_vig / r.fat_total : null)], [B3.int(r.qtd_vig)], [B3.int(r.qtd_total)], [B3.pct(r.qtd_total > 0 ? r.qtd_vig / r.qtd_total : null)]]) { const td = tr.insertCell(); if (c) td.className = c; td.textContent = v; if (bold) td.style.fontWeight = '600'; } };
   for (const r of rows) row(dlab(r.dt), r, false);
   row('Total', tot, true);
   el.append(t);
