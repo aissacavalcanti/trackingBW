@@ -125,7 +125,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 <div class="bw" id="topo">
   <header class="bw-head">
     <h1>Tracking Beauty Week 2026</h1>
-    <p class="sub">Vendas de 28/10 a 09/11 (09/11 parcial, até 17h22) · Estoque de 09/11 · Itens da tabela BW (BOT, QDB, OUI e EUD)</p>
+    <p class="sub">Vendas de 28/10 a 10/11 (10/11 parcial, até 10h33) · Estoque de 10/11 · Itens da tabela BW (BOT, QDB, OUI e EUD)</p>
     
   </header>
 
@@ -137,11 +137,11 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <div class="aba" id="aba-geral">
   <div class="tiles" id="kpis">
-    <div class="tile"><span class="lbl">Faturamento total da rede</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_total" data-row="0">—</span><span class="note">Todos os itens, 28/10 a 09/11</span></div>
+    <div class="tile"><span class="lbl">Faturamento total da rede</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_total" data-row="0">—</span><span class="note">Todos os itens, 28/10 a 10/11</span></div>
     <div class="tile"><span class="lbl">Faturamento BW em vigência</span><span class="val" data-draw="kpi" data-source="kpis" data-field="fat_bw_vig" data-row="0">—</span><span class="note">Item com desconto ativo no dia da venda</span></div>
     <div class="tile"><span class="lbl">% da receita vinda do BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="part" data-row="0">—</span><span class="note">BW em vigência ÷ faturamento total</span></div>
     <div class="tile"><span class="lbl">Giro BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="st" data-row="0">—</span><span class="note">Vendido ÷ (vendido + estoque)</span></div>
-    <div class="tile"><span class="lbl">Cobertura do estoque BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="cob" data-row="0">—</span><span class="note">Dias de estoque no ritmo atual · faltam 21 dias de BW</span></div>
+    <div class="tile"><span class="lbl">Cobertura do estoque BW</span><span class="val" data-draw="kpi" data-source="kpis" data-field="cob" data-row="0">—</span><span class="note">Dias de estoque no ritmo atual · faltam 20 dias de BW</span></div>
   </div>
 
   <div class="grid2" id="resumo-graficos">
@@ -166,7 +166,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="giro">
     <h2>Giro por praça e canal</h2>
-    <p class="lead">Giro dos SKUs que estão com desconto vigente hoje. Verde é giro alto, vermelho é giro baixo. Cobertura acima de 21 dias indica estoque que deve sobrar depois de 30/11 no ritmo atual; abaixo de 10 dias, risco de ruptura antes da semana BW.</p>
+    <p class="lead">Giro dos SKUs que estão com desconto vigente hoje. Verde é giro alto, vermelho é giro baixo. Cobertura acima de 20 dias indica estoque que deve sobrar depois de 30/11 no ritmo atual; abaixo de 10 dias, risco de ruptura antes da semana BW.</p>
     <div class="card" id="mapa">
       <h3>Mapa de giro: praça × canal</h3>
       <p class="note">Cada célula mostra giro e, abaixo, a cobertura em dias. Passe o mouse para ver faturamento e % da receita.</p>
@@ -198,7 +198,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="receita">
     <h2>Quanto o BW está puxando a receita</h2>
-    <p class="lead">Faturamento por dia, separando o que veio de itens BW com desconto vigente. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11 é sábado, 08/11 domingo e 09/11 vai até 17h22.</p>
+    <p class="lead">Faturamento por dia, separando o que veio de itens BW com desconto vigente. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11 é sábado, 08/11 domingo e 10/11 vai até 10h33.</p>
     <div class="grid2">
       <div class="card" id="marcas">
         <h3>Giro por tabela</h3>
@@ -242,7 +242,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="skus">
     <h2>SKUs</h2>
-    <p class="lead">Escolha a visão: mais vendidos, risco de sobra (cobertura acima de 21 dias ou sem venda), risco de ruptura (cobertura abaixo de 10 dias) ou itens que ainda vão entrar em desconto (venda atual, sem desconto, serve de base de comparação).</p>
+    <p class="lead">Escolha a visão: mais vendidos, risco de sobra (cobertura acima de 20 dias ou sem venda), risco de ruptura (cobertura abaixo de 10 dias) ou itens que ainda vão entrar em desconto (venda atual, sem desconto, serve de base de comparação).</p>
     <div class="card">
       <div class="ctrls">
         <select id="f-view" aria-label="Visão">
@@ -297,7 +297,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
       </div>
       <div class="card" id="dia-tabela">
         <h3>Dia a dia</h3>
-        <p class="note">01/11 é domingo e 02/11 feriado. 07/11 é sábado, 08/11 domingo e 09/11 vai até 17h22.</p>
+        <p class="note">01/11 é domingo e 02/11 feriado. 07/11 é sábado, 08/11 domingo e 10/11 vai até 10h33.</p>
         <div class="tbox short" data-draw="dia-table" data-source="dia_bw dia_total"></div>
       </div>
       <div class="card" id="dia-skus">
@@ -339,7 +339,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
             <option value="">Todas as situações</option>
             <option value="zerado">Vendeu e está zerado</option>
             <option value="semvenda">Tem estoque e não vendeu</option>
-            <option value="sobra">Cobertura acima de 21 dias</option>
+            <option value="sobra">Cobertura acima de 20 dias</option>
             <option value="ruptura">Cobertura abaixo de 10 dias</option>
           </select>
           <input id="q-est" type="search" placeholder="Buscar SKU ou descrição" aria-label="Buscar SKU">
@@ -391,8 +391,8 @@ window.bw = (() => {
   const pct = (v) => v == null || isNaN(v) ? '—' : nf1.format(v * 100) + '%';
   const int = (v) => v == null || isNaN(v) ? '—' : nf0.format(v);
   const dias = (v) => v == null || isNaN(v) ? 'sem venda' : nf0.format(v) + ' dias';
-  const cobClass = (v) => v == null || isNaN(v) ? 'bad' : v > 21 ? 'warn' : v < 10 ? 'bad' : 'good';
-  const DIAS = 13;
+  const cobClass = (v) => v == null || isNaN(v) ? 'bad' : v > 20 ? 'warn' : v < 10 ? 'bad' : 'good';
+  const DIAS = 14;
   const giro = (q, e) => ({st: q + e > 0 ? q / (q + e) : null, cob: q > 0 ? e / (q / DIAS) : null});
   const css = (name) => getComputedStyle(document.getElementById('dash-root') || document.body).getPropertyValue(name).trim();
   const ok = (id) => dash.data(id).status === 'ok';
@@ -418,14 +418,14 @@ window.bw = (() => {
 </script>
 
 <script>
-dash.calc('kpis', {inputs: ['lojas'], title: 'Totais da rede', description: 'Soma das lojas: faturamento, % da receita BW, giro e cobertura (13 dias).',
+dash.calc('kpis', {inputs: ['lojas'], title: 'Totais da rede', description: 'Soma das lojas: faturamento, % da receita BW, giro e cobertura (14 dias).',
   fn: (lojas) => {
     const s = (k) => lojas.reduce((a, r) => a + r[k], 0);
     const q = s('qtd'), e = s('est');
-    return [{fat_total: s('fat_total'), fat_bw_vig: s('fat_bw_vig'), part: s('fat_bw_vig') / s('fat_total'), st: q / (q + e), cob: e / (q / 13)}];
+    return [{fat_total: s('fat_total'), fat_bw_vig: s('fat_bw_vig'), part: s('fat_bw_vig') / s('fat_total'), st: q / (q + e), cob: e / (q / 14)}];
   }});
 dash.calc('pc_calc', {inputs: ['praca_canal'], title: 'Giro praça × canal', description: 'Cada praça e canal com % da receita BW, giro e cobertura.',
-  fn: (praca_canal) => praca_canal.map((r) => ({...r, part: r.fat_total > 0 ? r.fat_bw_vig / r.fat_total : null, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null}))});
+  fn: (praca_canal) => praca_canal.map((r) => ({...r, part: r.fat_total > 0 ? r.fat_bw_vig / r.fat_total : null, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 14) : null}))});
 dash.calc('por_praca', {inputs: ['praca_canal'], title: 'Giro por praça', description: 'Praça × canal somado por praça.', fn: (praca_canal) => {
     const m = new Map();
     for (const r of praca_canal) {
@@ -433,7 +433,7 @@ dash.calc('por_praca', {inputs: ['praca_canal'], title: 'Giro por praça', descr
       a.lojas += r.lojas; a.fat_total += r.fat_total; a.fat_bw_vig += r.fat_bw_vig; a.qtd += r.qtd; a.est += r.est;
       m.set(r.praca, a);
     }
-    return [...m.values()].map((a) => ({...a, part: a.fat_bw_vig / a.fat_total, st: a.qtd + a.est > 0 ? a.qtd / (a.qtd + a.est) : null, cob: a.qtd > 0 ? a.est / (a.qtd / 13) : null})).sort((a, b) => b.st - a.st);
+    return [...m.values()].map((a) => ({...a, part: a.fat_bw_vig / a.fat_total, st: a.qtd + a.est > 0 ? a.qtd / (a.qtd + a.est) : null, cob: a.qtd > 0 ? a.est / (a.qtd / 14) : null})).sort((a, b) => b.st - a.st);
   }});
 dash.calc('por_canal', {inputs: ['praca_canal'], title: 'Giro por canal', description: 'Praça × canal somado por canal.', fn: (praca_canal) => {
     const m = new Map();
@@ -442,7 +442,7 @@ dash.calc('por_canal', {inputs: ['praca_canal'], title: 'Giro por canal', descri
       a.lojas += r.lojas; a.fat_total += r.fat_total; a.fat_bw_vig += r.fat_bw_vig; a.qtd += r.qtd; a.est += r.est;
       m.set(r.canal, a);
     }
-    return [...m.values()].map((a) => ({...a, part: a.fat_bw_vig / a.fat_total, st: a.qtd + a.est > 0 ? a.qtd / (a.qtd + a.est) : null, cob: a.qtd > 0 ? a.est / (a.qtd / 13) : null})).sort((a, b) => b.st - a.st);
+    return [...m.values()].map((a) => ({...a, part: a.fat_bw_vig / a.fat_total, st: a.qtd + a.est > 0 ? a.qtd / (a.qtd + a.est) : null, cob: a.qtd > 0 ? a.est / (a.qtd / 14) : null})).sort((a, b) => b.st - a.st);
   }});
 dash.calc('extremos', {inputs: ['pc_calc'], title: 'Melhor e pior giro', description: 'Combinação praça × canal com maior e menor giro, entre as que tiveram venda.',
   fn: (pc_calc) => {
@@ -450,14 +450,14 @@ dash.calc('extremos', {inputs: ['pc_calc'], title: 'Melhor e pior giro', descrip
     const lab = (r) => r.praca + ' · ' + r.canal;
     return [{tipo: 'melhor', rotulo: lab(s[0]), st: s[0].st}, {tipo: 'pior', rotulo: lab(s[s.length - 1]), st: s[s.length - 1].st}];
   }});
-dash.calc('lojas_calc', {inputs: ['lojas_dia'], title: 'Indicadores por loja e dia', description: '% da receita BW, giro e cobertura de cada loja, no período (13 dias) ou num dia.',
-  fn: (lojas_dia) => lojas_dia.map((r) => ({bcps: r.bcps, dt: r.dt, part: r.fat_total > 0 ? r.fat_bw_vig / r.fat_total : null, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / (r.dt === 'total' ? 13 : 1)) : null}))});
-dash.calc('estoque_calc', {inputs: ['estoque', 'skus', 'lojas'], title: 'Estoque por loja e SKU', description: 'Saldo e venda de cada SKU BW por loja, com descrição, status, giro e cobertura (13 dias).',
+dash.calc('lojas_calc', {inputs: ['lojas_dia'], title: 'Indicadores por loja e dia', description: '% da receita BW, giro e cobertura de cada loja, no período (14 dias) ou num dia.',
+  fn: (lojas_dia) => lojas_dia.map((r) => ({bcps: r.bcps, dt: r.dt, part: r.fat_total > 0 ? r.fat_bw_vig / r.fat_total : null, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / (r.dt === 'total' ? 14 : 1)) : null}))});
+dash.calc('estoque_calc', {inputs: ['estoque', 'skus', 'lojas'], title: 'Estoque por loja e SKU', description: 'Saldo e venda de cada SKU BW por loja, com descrição, status, giro e cobertura (14 dias).',
   fn: (estoque, skus, lojas) => {
     const s = new Map(skus.map((r) => [r.sku, r])), l = new Map(lojas.map((r) => [r.bcps, r]));
     return estoque.map((r) => {
       const a = s.get(r.sku) || {}, b = l.get(r.bcps) || {};
-      return {bcps: r.bcps, sku: r.sku, loja: b.loja || r.bcps, praca: b.praca || '', canal: b.canal || '', descricao: a.descricao || '', tabela: a.tabela || '', status: a.status || '', est: r.est, qtd: r.qtd, qtd_hoje: r.qtd_hoje, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null};
+      return {bcps: r.bcps, sku: r.sku, loja: b.loja || r.bcps, praca: b.praca || '', canal: b.canal || '', descricao: a.descricao || '', tabela: a.tabela || '', status: a.status || '', est: r.est, qtd: r.qtd, qtd_hoje: r.qtd_hoje, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 14) : null};
     });
   }});
 dash.calc('pot_total', {inputs: ['praca_pot'], title: 'Realizado e potencial na rede', description: 'Soma das praças: faturamento BW realizado e estoque BW a preço com desconto.',
@@ -467,7 +467,7 @@ dash.calc('pot_total', {inputs: ['praca_pot'], title: 'Realizado e potencial na 
     return [{real, pot, pot_vig: s('pot_vig'), pot_fut: s('pot_fut'), conv: real / (real + pot)}];
   }});
 dash.calc('skus_calc', {inputs: ['skus'], title: 'Giro por SKU', description: 'Giro e cobertura de cada SKU na rede.',
-  fn: (skus) => skus.map((r) => ({sku: r.sku, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null}))});
+  fn: (skus) => skus.map((r) => ({sku: r.sku, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / 14) : null}))});
 dash.calc('diario_total', {inputs: ['diario'], title: 'Faturamento por dia', description: 'Faturamento total e BW em vigência por dia, somando os canais.',
   fn: (diario) => {
     const m = new Map();
@@ -475,7 +475,7 @@ dash.calc('diario_total', {inputs: ['diario'], title: 'Faturamento por dia', des
     return [...m.values()].sort((a, b) => a.dt < b.dt ? -1 : 1).map((a) => ({...a, part: a.fat_bw_vig / a.fat_total}));
   }});
 dash.calc('marcas_vig', {inputs: ['marcas'], title: 'Giro por tabela', description: 'Giro e cobertura dos SKUs em vigência por tabela.',
-  fn: (marcas) => marcas.filter((r) => r.status === 'Em vigência').map((r) => ({tabela: r.tabela, fat: r.fat, qtd: r.qtd, est: r.est, st: r.qtd / (r.qtd + r.est), cob: r.qtd > 0 ? r.est / (r.qtd / 13) : null})).sort((a, b) => b.st - a.st)});
+  fn: (marcas) => marcas.filter((r) => r.status === 'Em vigência').map((r) => ({tabela: r.tabela, fat: r.fat, qtd: r.qtd, est: r.est, st: r.qtd / (r.qtd + r.est), cob: r.qtd > 0 ? r.est / (r.qtd / 14) : null})).sort((a, b) => b.st - a.st)});
 dash.calc('fora_total', {inputs: ['fora_tabela'], title: 'Itens fora da tabela', description: 'Quantidade e faturamento dos SKUs do estoque BW que não estão na tabela.',
   fn: (fora_tabela) => [{skus: fora_tabela.length, fat: fora_tabela.reduce((a, r) => a + r.fat, 0)}]});
 </script>
@@ -695,7 +695,7 @@ const skuRows = () => {
   let rows = d.data.map((r) => ({...r, ...cm.get(r.sku)})).filter((r) => (!p.tabela || r.tabela === p.tabela) && (!q || (r.sku + ' ' + r.descricao).toLowerCase().includes(q)));
   const vig = (r) => r.status === 'Em vigência';
   if (view === 'top') rows = rows.filter((r) => vig(r) && r.qtd > 0).sort((a, b) => b.fat - a.fat);
-  if (view === 'sobra') rows = rows.filter((r) => vig(r) && r.est > 0 && (r.cob == null || r.cob > 21)).sort((a, b) => b.est - a.est);
+  if (view === 'sobra') rows = rows.filter((r) => vig(r) && r.est > 0 && (r.cob == null || r.cob > 20)).sort((a, b) => b.est - a.est);
   if (view === 'ruptura') rows = rows.filter((r) => vig(r) && r.qtd > 0 && r.cob < 10).sort((a, b) => a.cob - b.cob);
   if (view === 'base') rows = rows.filter((r) => !vig(r) && (r.qtd > 0 || r.est > 0)).sort((a, b) => b.fat - a.fat);
   return rows;
@@ -894,7 +894,7 @@ const estRows = () => {
   const p = P4(), qi = document.querySelector('#q-est'), q = (qi ? qi.value : '').trim().toLowerCase();
   return d.data.filter((r) => (!p.praca || r.praca === p.praca) && (!p.canal || r.canal === p.canal) && (!p.loja || r.bcps === p.loja) && (!p.tabela || r.tabela === p.tabela)
     && (!p.e_status || (p.e_status === 'vig' ? r.status === 'Em vigência' : r.status !== 'Em vigência'))
-    && (!p.e_sit || (p.e_sit === 'zerado' ? r.qtd > 0 && r.est <= 0 : p.e_sit === 'semvenda' ? r.est > 0 && r.qtd === 0 : p.e_sit === 'sobra' ? r.est > 0 && (r.cob == null || r.cob > 21) : r.qtd > 0 && r.cob != null && r.cob < 10))
+    && (!p.e_sit || (p.e_sit === 'zerado' ? r.qtd > 0 && r.est <= 0 : p.e_sit === 'semvenda' ? r.est > 0 && r.qtd === 0 : p.e_sit === 'sobra' ? r.est > 0 && (r.cob == null || r.cob > 20) : r.qtd > 0 && r.cob != null && r.cob < 10))
     && (!q || (r.sku + ' ' + r.descricao).toLowerCase().includes(q)));
 };
 window.bwEstRows = estRows;
