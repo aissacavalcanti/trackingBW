@@ -242,11 +242,11 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="skus">
     <h2>SKUs</h2>
-    <p class="lead">Escolha a visão: mais vendidos, risco de sobra (cobertura acima de 20 dias ou sem venda), risco de ruptura (cobertura abaixo de 10 dias) ou itens que ainda vão entrar em desconto (venda atual, sem desconto, serve de base de comparação).</p>
+    <p class="lead">Escolha a visão: mais vendidos (todos os itens BW, em vigência ou não), risco de sobra (cobertura acima de 20 dias ou sem venda), risco de ruptura (cobertura abaixo de 10 dias) ou itens que ainda vão entrar em desconto (venda atual, sem desconto, serve de base de comparação).</p>
     <div class="card">
       <div class="ctrls">
         <select id="f-view" aria-label="Visão">
-          <option value="top">Mais vendidos (em vigência)</option>
+          <option value="top">Mais vendidos (todos os itens BW)</option>
           <option value="sobra">Risco de sobra</option>
           <option value="ruptura">Risco de ruptura</option>
           <option value="base">Ainda sem desconto (base)</option>
@@ -694,7 +694,7 @@ const skuRows = () => {
   const p = P(), view = p.sku_view || 'top', qi = document.querySelector('#q-sku'), q = (qi ? qi.value : '').trim().toLowerCase();
   let rows = d.data.map((r) => ({...r, ...cm.get(r.sku)})).filter((r) => (!p.tabela || r.tabela === p.tabela) && (!q || (r.sku + ' ' + r.descricao).toLowerCase().includes(q)));
   const vig = (r) => r.status === 'Em vigência';
-  if (view === 'top') rows = rows.filter((r) => vig(r) && r.qtd > 0).sort((a, b) => b.fat - a.fat);
+  if (view === 'top') rows = rows.filter((r) => r.qtd > 0).sort((a, b) => b.qtd - a.qtd);
   if (view === 'sobra') rows = rows.filter((r) => vig(r) && r.est > 0 && (r.cob == null || r.cob > 20)).sort((a, b) => b.est - a.est);
   if (view === 'ruptura') rows = rows.filter((r) => vig(r) && r.qtd > 0 && r.cob < 10).sort((a, b) => a.cob - b.cob);
   if (view === 'base') rows = rows.filter((r) => !vig(r) && (r.qtd > 0 || r.est > 0)).sort((a, b) => b.fat - a.fat);
