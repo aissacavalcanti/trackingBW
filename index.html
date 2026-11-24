@@ -17,7 +17,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 <div id="dash-root">
 <p id="bw-loading" style="color:#68706b;font-size:14px">Carregando dados…</p>
 <script>
-window.BWM = {"hoje": "2026-11-24", "ultima": "24/11", "dias": 27.6, "rest": 6, "frac": 0.6, "hora": "14h28", "estoque": "24/11", "parcial": true, "gerado": "pipeline"};
+window.BWM = {"hoje": "2026-11-24", "ultima": "24/11", "dias": 27.8, "rest": 6, "frac": 0.8, "hora": "17h36", "estoque": "24/11", "parcial": true, "gerado": "pipeline"};
 (function(){
   const NAMES=["lojas", "lojas_dia", "praca_canal", "diario", "skus", "marcas", "fora_tabela", "dia_total", "dia_bw", "dia_sku", "estoque", "praca_pot"]; const raw={};
   const calcs={}, cache={}, draws={}, onDatas=[]; let P=Object.assign({}, {"praca": null, "canal": null, "tabela": null, "sku_view": "top", "aba": "geral", "metrica": "qtd"}); const P0=Object.assign({}, P); let ready=false;
@@ -144,7 +144,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 <div class="bw" id="topo">
   <header class="bw-head">
     <h1>Tracking Beauty Week 2026</h1><a class="bw-upd" href="atualizar.html" data-site-only>Atualizar dados</a>
-    <p class="sub"><span data-meta="periodo">Vendas de 28/10 a 24/11 (24/11 parcial, até 14h28) · Estoque de 24/11</span> · Itens da tabela BW (BOT, QDB, OUI e EUD)</p>
+    <p class="sub"><span data-meta="periodo">Vendas de 28/10 a 24/11 (24/11 parcial, até 17h36) · Estoque de 24/11</span> · Itens da tabela BW (BOT, QDB, OUI e EUD)</p>
     
   </header>
 
@@ -217,7 +217,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
 
   <section class="sec" id="receita">
     <h2>Quanto o BW está puxando a receita</h2>
-    <p class="lead">Faturamento por dia, separando o que veio de itens da tabela BW. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11, 14/11 e 21/11 são sábado, 08/11, 15/11 e 22/11 domingo (15/11 e 20/11 feriados), 18/11 só tem venda até 14h11<span data-meta="parcialnota"> e 24/11 vai até 14h28</span>.</p>
+    <p class="lead">Faturamento por dia, separando o que veio de itens da tabela BW. 28/10 é abertura de ciclo VD; 01/11 é domingo e 02/11 feriado; 07/11, 14/11 e 21/11 são sábado, 08/11, 15/11 e 22/11 domingo (15/11 e 20/11 feriados), 18/11 só tem venda até 14h11<span data-meta="parcialnota"> e 24/11 vai até 17h36</span>.</p>
     <div class="grid2">
       <div class="card" id="marcas">
         <h3>Giro por tabela</h3>
@@ -316,7 +316,7 @@ table.t tbody tr:hover { background: var(--cds-chart-grid); }
       </div>
       <div class="card" id="dia-tabela">
         <h3>Dia a dia</h3>
-        <p class="note">01/11 é domingo e 02/11 feriado. 07/11, 14/11 e 21/11 são sábado, 08/11, 15/11 e 22/11 domingo (15/11 e 20/11 feriados), 18/11 só tem venda até 14h11<span data-meta="parcialnota"> e 24/11 vai até 14h28</span>.</p>
+        <p class="note">01/11 é domingo e 02/11 feriado. 07/11, 14/11 e 21/11 são sábado, 08/11, 15/11 e 22/11 domingo (15/11 e 20/11 feriados), 18/11 só tem venda até 14h11<span data-meta="parcialnota"> e 24/11 vai até 17h36</span>.</p>
         <div class="tbox short" data-draw="dia-table" data-source="dia_bw dia_total"></div>
       </div>
       <div class="card" id="dia-skus">
@@ -437,7 +437,7 @@ window.bw = (() => {
 </script>
 
 <script>
-dash.calc('kpis', {inputs: ['lojas'], title: 'Totais da rede', description: 'Soma das lojas: faturamento, % da receita BW, giro e cobertura (27,6 dias).',
+dash.calc('kpis', {inputs: ['lojas'], title: 'Totais da rede', description: 'Soma das lojas: faturamento, % da receita BW, giro e cobertura (27,8 dias).',
   fn: (lojas) => {
     const s = (k) => lojas.reduce((a, r) => a + r[k], 0);
     const q = s('qtd'), e = s('est');
@@ -469,9 +469,9 @@ dash.calc('extremos', {inputs: ['pc_calc'], title: 'Melhor e pior giro', descrip
     const lab = (r) => r.praca + ' · ' + r.canal;
     return [{tipo: 'melhor', rotulo: lab(s[0]), st: s[0].st}, {tipo: 'pior', rotulo: lab(s[s.length - 1]), st: s[s.length - 1].st}];
   }});
-dash.calc('lojas_calc', {inputs: ['lojas_dia'], title: 'Indicadores por loja e dia', description: '% da receita BW, giro e cobertura de cada loja, no período (27,6 dias) ou num dia.',
+dash.calc('lojas_calc', {inputs: ['lojas_dia'], title: 'Indicadores por loja e dia', description: '% da receita BW, giro e cobertura de cada loja, no período (27,8 dias) ou num dia.',
   fn: (lojas_dia) => lojas_dia.map((r) => ({bcps: r.bcps, dt: r.dt, part: r.fat_total > 0 ? r.fat_bw_vig / r.fat_total : null, st: r.qtd + r.est > 0 ? r.qtd / (r.qtd + r.est) : null, cob: r.qtd > 0 ? r.est / (r.qtd / (r.dt === 'total' ? 14 : 1)) : null}))});
-dash.calc('estoque_calc', {inputs: ['estoque', 'skus', 'lojas'], title: 'Estoque por loja e SKU', description: 'Saldo e venda de cada SKU BW por loja, com descrição, status, giro e cobertura (27,6 dias).',
+dash.calc('estoque_calc', {inputs: ['estoque', 'skus', 'lojas'], title: 'Estoque por loja e SKU', description: 'Saldo e venda de cada SKU BW por loja, com descrição, status, giro e cobertura (27,8 dias).',
   fn: (estoque, skus, lojas) => {
     const s = new Map(skus.map((r) => [r.sku, r])), l = new Map(lojas.map((r) => [r.bcps, r]));
     return estoque.map((r) => {
